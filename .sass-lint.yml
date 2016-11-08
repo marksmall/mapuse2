@@ -11,7 +11,7 @@
   # output-file: 'linters/sass-lint.html'
 # File Options
 files:
-  include: 'src/main/app/**/*.s+(a|c)ss'
+  include: 'src/**/*.s+(a|c)ss'
   ignore:
     - '**/vendor.s+(a|c)ss'
     - 'node_modules/**'
