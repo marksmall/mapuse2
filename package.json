@@ -5,8 +5,10 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
-    "serve": "concurrently --kill-others \"node ./proxy/proxy.js\" \"yarn start\"",
-    "lint": "tslint \"src/**/*.ts\"",
+    "serve": "concurrently 'node ./proxy/proxy.js' 'ng serve --proxy-config proxy.conf.json'",
+    "lint": "tslint 'src/**/*.ts'",
+    "lint-sass": "sass-lint -c ./.sass-lint.yml '**/*.sass' -v -q",
+    "build": "concurrently 'yarn run lint' 'yarn run lint-sass' 'yarn run test'",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor"
