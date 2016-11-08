@@ -7,7 +7,7 @@ describe('App: Angular2Map', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
       ],
     });
   });

@@ -6,7 +6,7 @@ import { MapService } from './map.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [MapComponent],
   providers: [MapService],
