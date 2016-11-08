@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { LayoutModule } from './layout/layout.module';
+import { MapModule } from './map/map.module';
 
 import { AppComponent } from './app.component';
 
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     LayoutModule,
+    MapModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
