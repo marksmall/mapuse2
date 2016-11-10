@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 
-// import proj4 = require('proj4')
 import * as proj4 from 'proj4';
 
-// import  { Proj, defs } from 'proj4'
 import { Map, proj, View, control, layer, source, Attribution, Extent } from 'openlayers';
-// import { Map, tilegrid, proj, View, control, layer, source, Attribution, Extent } from 'openlayers';
 
-// import { MAP_CONFIG } from './map.config';
-// import { Layer } from './map';
+import { MapConfig, Layer } from '../config/map';
+import { ConfigService } from '../config/config.service';
 
 proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717' +
                          ' +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,' +
@@ -18,53 +15,45 @@ proj.setProj4(proj4);
 @Injectable()
 export class MapService {
 
-  constructor() {
+  constructor(private configService: ConfigService) {
     // TODO
   }
 
-  public createMap(name: string): Map {
-    console.log(`Map Div: ${name}`);
+  public createMap(name: string, collectionId: string): Map {
+    let config: MapConfig;
+    // FIXME: Hard-coded collection id, need to pass it in somehow.
+    this.configService.getMapConfig(collectionId).subscribe(collection => {
+      config = collection;
+    });
+    console.log('CONFIG: ', config);
 
     let extent: Extent = [0, 0, 700000, 1300000];
-
-    let projection = proj.get('EPSG:27700');
-    console.log('27700 PROJECTION: ', projection);
+    let projection = proj.get(config.crs.code);
     proj.addProjection(projection);
 
-    let html = '©  <a href="http://bgs.ac.uk/data/services/soilwms.html">Contains British Geological Survey materials © NERC 2016</a>';
-    let layers = [
-      new layer.Tile({
-        extent: extent,
-        source: new source.TileWMS({
-          url: 'https://map.bgs.ac.uk/arcgis/services/UKSO/UKSO_BGS/MapServer/WMSServer',
-          attributions: [
-            new Attribution({html: html}),
-          ],
-          projection: projection,
-          params: {
-            'LAYERS': 'Parent.Material.European.Soil.Bureau.Description.1km',
-            'FORMAT': 'image/png',
-          },
-        }),
-      }),
-    ];
+    // Convert layer config to an array of OpenLayers Layer objects.
+    let layers = this.getLayers(config.layers, projection);
 
+    // FIXME: config.center is just an array e.g. [33600, 67500] (easting/northing)
+    //        we need a better way to set the center point of the map.
     // console.log('Centre Point: ', proj.transform([55.945589, -3.182186], 'EPSG:3857', projection));
     // console.log('Centre Point: ', proj.transform([55.945589, -3.182186], 'EPSG:4326', projection));
     // center: proj.fromLonLat([55.945589, -3.182186], 'EPSG:27700'),
 
+    // Create map.
     let map = new Map({
       controls: control.defaults().extend([
         new control.ZoomSlider(),
         new control.ScaleLine(),
+        new control.Attribution(),
       ]),
       layers: layers,
       target: name,
       view: new View({
         projection: projection,
-        center: [33600, 67500],
+        center: config.center, // FIXME: See above.
         extent: extent,
-        zoom: 6,
+        zoom: 6, // FIXME: Hard-coded, not good.
       }),
     });
 
@@ -74,70 +63,32 @@ export class MapService {
   /**
    * Construct a list of layers from the map config.
    */
-  // private getLayers(tileGrid: tilegrid.TileGrid): any[] {
-  //   let layers: any = [];
+  private getLayers(layerConfig: Layer[], projection: proj.Projection): any[] {
+    let layers: layer.Tile[] = [];
 
-  //   MAP_CONFIG.layers.forEach((layer: Layer) => {
-  //     let attributions = '<p>';
-  //     console.log(`Layer Attribution: ${JSON.stringify(layer)}`);
-  //     layer.attributions.forEach((attribution: string) => {
-  //       attributions += attribution + '<br/>';
-  //     });
-  //     attributions += '</p>';
+    for (let layerConf of layerConfig) {
+      let attributions = '';
+      for (let attribution of layerConf.attributions) {
+        attributions += attribution;
+      }
 
-  //     layers.push(new ol.layer.Tile({
-  //       source: this.getSource(layer, attributions, tileGrid),
-  //       opacity: layer.opacity,
-  //     }));
-  //   });
+      layers.push(new layer.Tile({
+        source: new source.TileWMS({
+          url: layerConf.url,
+          attributions: [
+            new Attribution({html: attributions}),
+          ],
+          projection: projection,
+          params: {
+            'LAYERS': layerConf.sublayers,
+            'FORMAT': layerConf.format,
+          },
+        }),
+        opacity: layerConf.opacity,
+      }));
+    }
 
-  //   return layers;
-  // }
-
-  /**
-   *
-   *
-   * @private
-   * @param {*} element
-   * @param {string} attributions
-   * @param {ol.tilegrid.TileGrid} tileGrid
-   *
-   * @returns {ol.source.TileWMS}
-   */
-  // private getSource(element: any, attributions: string, tileGrid: tilegrid.TileGrid): ol.source.TileWMS {
-  //   if (element.type.toUpperCase() === 'WMS') {
-  //     return this.getWmsSource(element, attributions, tileGrid);
-  //   } else {
-  //     throw new TypeError(`Unknown Source Type: ${element.type.toUpperCase()}`);
-  //   }
-  // }
-
-  /**
-   *
-   *
-   * @private
-   * @param {*} element
-   * @param {string} attributions
-   * @param {ol.tilegrid.TileGrid} tileGrid
-   *
-   * @returns {ol.source.TileWMS}
-   */
-  // private getWmsSource(element: any, attributions: string, tileGrid: tilegrid.TileGrid): ol.source.TileWMS {
-  //   let source = new ol.source.TileWMS({
-  //     url: element.url,
-  //     attributions: [
-  //       new ol.Attribution({html: attributions}),
-  //     ],
-  //     projection: null,
-  //     params: {
-  //       'LAYERS': element.sublayers,
-  //       'FORMAT': element.format,
-  //       'TILED': true,
-  //     },
-  //     tileGrid: tileGrid,
-  //   });
-
-  //   return source;
-  // }
+    return layers;
+  }
 
 }

@@ -1,5 +1,3 @@
-// import { View } from 'openlayers';
-
 export interface Layer {
   type: string;
   url: string;
@@ -10,15 +8,10 @@ export interface Layer {
 }
 
 export interface MapConfig {
+  id: string;
   extent: number[];
   resolutions: number[];
-  center: number[];
+  center: [number, number];
   crs: any;
   layers: Layer[];
 }
-// export interface MapConfig {
-//   target: string
-//   layers: Layer[]
-//   view: View
-//   controls: any
-// }

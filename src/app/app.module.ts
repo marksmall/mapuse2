@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { LayoutModule } from './layout/layout.module';
 import { MapModule } from './map/map.module';
 
+import { ConfigService } from './config/config.service';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -19,7 +21,7 @@ import { AppComponent } from './app.component';
     LayoutModule,
     MapModule,
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
