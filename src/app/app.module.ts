@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { LayoutModule } from './layout/layout.module';
 import { AppRoutingModule } from './app-routing.module';
+import { UnknownClientModule } from './unknown-client/unknown-client.module';
 import { MapModule } from './map/map.module';
 import { OsModule } from './os/os.module';
 import { GeologyModule } from './geology/geology.module';
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     LayoutModule,
     AppRoutingModule,
+    UnknownClientModule,
     MapModule,
     OsModule,
     GeologyModule,
