@@ -1,0 +1,12 @@
+.search {
+  position: relative;
+  left: 10em;
+  top: 5em;
+  z-index: 1000;
+
+  input {
+    background-color: transparent;
+    color: #000;
+    font-weight: bold;
+  }
+}

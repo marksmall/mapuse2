@@ -1,0 +1,13 @@
+<form class="form-horizontal search" [formGroup]="searchForm" (ngSubmit)="search()">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." formControlName="searchTerm" [(ngModel)]="term" tabindex="0">
+      <!--<dm-control-messages [control]="notUserForm.controls.name"></dm-control-messages>-->
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit" [disabled]="!canSubmit()">Go!</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>

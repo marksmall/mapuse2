@@ -45,11 +45,11 @@ let error = [{
 
 let search = (req, res) =>{
   console.log('SEARCHING.');
-  if (req.query.search === 'zero') {
+  if (req.query.term === 'zero') {
     res.json(noResults);
-  } else if (req.query.search === 'EH9 1PR') {
+  } else if (req.query.term === 'EH9 1PR') {
     res.json(singleResult);
-  } else if (req.query.search === 'multi') {
+  } else if (req.query.term === 'multi') {
     res.json(multipleResults);
   } else {
     res.json(error);
