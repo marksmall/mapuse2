@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { MapModule } from '../map/map.module';
+
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service';
@@ -11,9 +15,12 @@ import { SearchService } from './search.service';
     CommonModule,
     ReactiveFormsModule,
     HttpModule,
+    MapModule,
+    SimpleNotificationsModule,
   ],
   declarations: [SearchComponent],
   providers: [SearchService],
   exports: [SearchComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchModule { }

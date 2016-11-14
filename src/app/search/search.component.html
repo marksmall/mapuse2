@@ -1,3 +1,5 @@
+<simple-notifications></simple-notifications>
+
 <form class="form-horizontal search" [formGroup]="searchForm" (ngSubmit)="search()">
   <div class="row">
     <div class="col-lg-2">
@@ -8,6 +10,19 @@
           <button class="btn btn-success" type="submit" [disabled]="!canSubmit()">Go!</button>
         </span>
       </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="searchResults !== undefined && searchResults.length > 0">
+    <div class="col-lg-2">
+      <ul class="list-group">
+        <li *ngFor="let result of searchResults; let i = index"
+            (click)="selectResult(result)"
+            class="list-group-item"
+            [attr.accesskey]="i===0? 1: null">
+          {{result.name}}
+        </li>
+      </ul>
     </div>
   </div>
 </form>

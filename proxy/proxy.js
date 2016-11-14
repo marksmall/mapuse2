@@ -35,8 +35,6 @@ var router = express.Router();
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
-	// do logging
-	console.log('Something is happening.');
 	next();
 });
 
@@ -56,4 +54,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log(`API Proxy listening on: http://localhost:${port}/api`);

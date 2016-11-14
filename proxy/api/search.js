@@ -5,33 +5,21 @@ let noResults = [];
 let singleResult = [{
   name: 'EH9 1PR',
   zoomLevel: 16,
-  point: {
-    x: 55.953252,
-    y: -3.188267
-  }
+  point: [326351, 672165]
 }];
 
 let multipleResults = [{
   name: 'Edinburgh',
-  zoomLevel: 16,
-  point: {
-    x: 55.953252,
-    y: -3.188267
-  }
+  zoomLevel: 13,
+  point: [325763, 673884]
 }, {
   name: 'London',
-  zoomLevel: 16,
-  point: {
-    x: 51.5073509,
-    y: -0.1277583
-  }
+  zoomLevel: 13,
+  point: [532475, 180740]
 }, {
   name: 'Caisteal Dhùn Èideann',
-  zoomLevel: 18,
-  point: {
-    x: 55.953252,
-    y: -3.188267
-  }
+  zoomLevel: 7,
+  point: [33600, 67500]
 }];
 
 let error = [{
@@ -52,6 +40,7 @@ let search = (req, res) =>{
   } else if (req.query.term === 'multi') {
     res.json(multipleResults);
   } else {
+    res.status(400)
     res.json(error);
   }
 };

@@ -1,7 +1,5 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
 
-import { Map } from 'openlayers';
-
 import { MapService } from './map.service';
 
 @Component({
@@ -13,7 +11,6 @@ export class MapComponent implements AfterViewInit {
 
   @Input() mapname: string;
   @Input() collection: string;
-  private map: Map;
 
   constructor(private mapService: MapService) {
     console.log('Creating Map Component');
@@ -22,6 +19,6 @@ export class MapComponent implements AfterViewInit {
   ngAfterViewInit() {
     // Map needs to be created after the view has been initialized or the template
     // will not be properly defined i.e. map name will not have been set.
-    this.map = this.mapService.createMap(this.mapname, this.collection);
+    this.mapService.createMap(this.mapname, this.collection);
   }
 }
