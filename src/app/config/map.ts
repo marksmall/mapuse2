@@ -14,4 +14,11 @@ export interface MapConfig {
   center: [number, number];
   crs: any;
   layers: Layer[];
+  tools: Tool[];
+}
+
+export interface Tool {
+  name: string;
+  icon: string;
+  tooltip: string;
 }

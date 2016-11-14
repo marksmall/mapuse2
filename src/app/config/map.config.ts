@@ -17,6 +17,23 @@ export const MAP_CONFIG: MapConfig[] = [{
     format: 'image/png',
     opacity: 1,
   }],
+  tools: [{
+    name: 'Annotate',
+    icon: 'annotate',
+    tooltip: 'Annotate the map',
+  }, {
+    name: 'Print',
+    icon: 'print',
+    tooltip: 'Print Map',
+  }, {
+    name: 'Annotate',
+    icon: 'annotate',
+    tooltip: 'Annotate the map',
+  }, {
+    name: 'Print',
+    icon: 'print',
+    tooltip: 'Print Map',
+  }],
 }, {
   id: 'geology',
   extent: [0, 0, 700000, 1300000],
@@ -36,5 +53,22 @@ export const MAP_CONFIG: MapConfig[] = [{
     sublayers: ['Parent.Material.European.Soil.Bureau.Description.1km'],
     format: 'image/png',
     opacity: 1,
+  }],
+  tools: [{
+    name: 'Annotate',
+    icon: 'annotate',
+    tooltip: 'Annotate the map',
+  }, {
+    name: 'Print',
+    icon: 'print',
+    tooltip: 'Print Map',
+  }, {
+    name: 'Annotate',
+    icon: 'annotate',
+    tooltip: 'Annotate the map',
+  }, {
+    name: 'Print',
+    icon: 'print',
+    tooltip: 'Print Map',
   }],
 }];

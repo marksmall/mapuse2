@@ -10,6 +10,7 @@ import { MapModule } from './map/map.module';
 import { OsModule } from './os/os.module';
 import { GeologyModule } from './geology/geology.module';
 import { SearchModule } from './search/search.module';
+import { MenuModule } from './menu/menu.module';
 
 import { ConfigService } from './config/config.service';
 
@@ -28,7 +29,7 @@ import { AppComponent } from './app.component';
     OsModule,
     GeologyModule,
     SearchModule,
-    // SimpleNotificationsModule,
+    MenuModule,
   ],
   providers: [ConfigService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

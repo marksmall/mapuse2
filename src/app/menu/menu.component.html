@@ -1,0 +1,16 @@
+<div class="btn-group tools-menu" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img class="tool-menu" src="../assets/menu.svg" alt="Map Tools">
+    </button>
+    <ul class="dropdown-menu">
+      <li *ngFor="let tool of tools;">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="tool-icon" src="../assets/{{tool.icon}}.svg" alt="{{tool.tooltip}}">
+          <br/>
+          {{tool.name}}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
