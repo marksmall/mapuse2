@@ -5,7 +5,7 @@
     </button>
     <ul class="dropdown-menu">
       <li *ngFor="let tool of tools;">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="handle(tool.id)">
           <img class="tool-icon" src="../assets/{{tool.icon}}.svg" alt="{{tool.tooltip}}">
           <br/>
           {{tool.name}}

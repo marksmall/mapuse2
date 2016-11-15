@@ -93,6 +93,10 @@ export class MapService implements OnInit {
     this.addMarker(position);
   }
 
+  getMap(name: string): OlMap {
+    return this.maps.get(name);
+  }
+
   addMarker(position: Coordinate) {
     let iconFeature = new Feature({
       geometry: new geom.Point(position),

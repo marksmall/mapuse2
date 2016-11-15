@@ -1,13 +1,14 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AnnotationsModule } from '../annotations/annotations.module';
+
 import { MenuComponent } from './menu.component';
-// import { ConfigModule } from '../config/config.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    // ConfigModule,
+    AnnotationsModule,
   ],
   declarations: [MenuComponent],
   exports: [MenuComponent],

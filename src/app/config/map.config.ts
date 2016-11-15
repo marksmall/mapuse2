@@ -18,18 +18,22 @@ export const MAP_CONFIG: MapConfig[] = [{
     opacity: 1,
   }],
   tools: [{
-    name: 'Annotate',
+    id: 'polygon',
+    name: 'Polygon',
     icon: 'annotate',
-    tooltip: 'Annotate the map',
+    tooltip: 'Draw Polygon on the map the map',
   }, {
+    id: 'print',
     name: 'Print',
     icon: 'print',
     tooltip: 'Print Map',
   }, {
-    name: 'Annotate',
+    id: 'draw-line',
+    name: 'Draw Line',
     icon: 'annotate',
-    tooltip: 'Annotate the map',
+    tooltip: 'Draw Line on the map the map',
   }, {
+    id: 'print',
     name: 'Print',
     icon: 'print',
     tooltip: 'Print Map',
@@ -55,18 +59,22 @@ export const MAP_CONFIG: MapConfig[] = [{
     opacity: 1,
   }],
   tools: [{
-    name: 'Annotate',
+    id: 'polygon',
+    name: 'Polygon',
     icon: 'annotate',
-    tooltip: 'Annotate the map',
+    tooltip: 'Draw Polygon on the map the map',
   }, {
+    id: 'print',
     name: 'Print',
     icon: 'print',
     tooltip: 'Print Map',
   }, {
-    name: 'Annotate',
+    id: 'draw-line',
+    name: 'Draw Line',
     icon: 'annotate',
-    tooltip: 'Annotate the map',
+    tooltip: 'Draw Line on the map the map',
   }, {
+    id: 'print',
     name: 'Print',
     icon: 'print',
     tooltip: 'Print Map',
