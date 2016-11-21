@@ -12,35 +12,42 @@ import { Tool } from '../config/map';
 })
 export class MenuComponent implements OnInit {
 
-  private services: any[];
-  tools: Tool[];
-  @Input() collection: string;
+  // private services: any[];
+  // tools: Tool[];
+  // @Input() collection: string;
+  // active = 'active';
 
-  constructor(private configService: ConfigService,
-              private polygonService: PolygonService,
-              private drawLineService: DrawLineService) { }
+  constructor() { }
 
-  handle(tool: string) {
-    // Get the applicable service.
-    let service = this.services.find(item => item.name === tool).service;
-    // Execute method.
-    service.handle(tool);
+  // constructor(private configService: ConfigService,
+  //             private polygonService: PolygonService,
+  //             private drawLineService: DrawLineService) { }
+
+  // handle(tool: string) {
+  //   // Get the applicable service.
+  //   let service = this.services.find(item => item.name === tool).service;
+  //   // Execute method.
+  //   service.handle(tool);
+  // }
+
+  toggleMenu() {
+    // this.active = this.active === 'active' ? '' : 'active';
   }
 
   ngOnInit() {
-    this.services = [{
-      name: 'polygon',
-      service: this.polygonService,
-    }, {
-      name: 'draw-line',
-      service: this.drawLineService,
-    }];
+    // this.services = [{
+    //   name: 'polygon',
+    //   service: this.polygonService,
+    // }, {
+    //   name: 'draw-line',
+    //   service: this.drawLineService,
+    // }];
 
-    this.configService.getMapConfig(this.collection).subscribe(tools => {
-      const config = tools;
-      this.tools = config.tools;
-    });
-    console.log('TOOLS: ', this.tools);
+    // this.configService.getMapConfig(this.collection).subscribe(tools => {
+    //   const config = tools;
+    //   this.tools = config.tools;
+    // });
+    // console.log('TOOLS: ', this.tools);
   }
 
 }

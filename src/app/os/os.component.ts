@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OsComponent implements OnInit {
 
+  active = '';
+
   constructor() { }
 
+  toggleMenu() {
+    this.active = this.active === 'active' ? '' : 'active';
+  }
+
   ngOnInit() {
+
   }
 
 }

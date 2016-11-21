@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MapModule } from '../map/map.module';
@@ -17,6 +17,5 @@ import { OsRoutingModule } from './os.routing';
     MenuModule,
   ],
   declarations: [OsComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class OsModule { }

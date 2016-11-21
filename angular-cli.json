@@ -19,6 +19,7 @@
       "mobile": false,
       "styles": [
         "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss",
+        "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/openlayers/css/ol.css",
         "styles.scss"
       ],
@@ -34,6 +35,8 @@
     }
   ],
   "addons": [
+    "../node_modules/bootstrap/dist/fonts/*.+(otf|eot|svg|ttf|woff|woff2)",
+    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
   ],
   "packages": [
   ],

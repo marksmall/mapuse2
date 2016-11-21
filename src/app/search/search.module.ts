@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -21,6 +21,5 @@ import { SearchService } from './search.service';
   declarations: [SearchComponent],
   providers: [SearchService],
   exports: [SearchComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchModule { }
