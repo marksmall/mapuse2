@@ -5,6 +5,8 @@ import { PolygonService } from '../annotations/polygon/polygon.service';
 import { DrawLineService } from '../annotations/draw-line/draw-line.service';
 import { Tool } from '../config/map';
 
+import 'jquery';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -14,7 +16,7 @@ export class MenuComponent implements OnInit {
 
   // private services: any[];
   // tools: Tool[];
-  // @Input() collection: string;
+  @Input() collection: string;
   // active = 'active';
 
   constructor() { }
@@ -30,8 +32,8 @@ export class MenuComponent implements OnInit {
   //   service.handle(tool);
   // }
 
-  toggleMenu() {
-    // this.active = this.active === 'active' ? '' : 'active';
+  toggle(event: Event) {
+    $(event.srcElement).parents('.panel').find('.panel-body').slideToggle();
   }
 
   ngOnInit() {

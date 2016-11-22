@@ -6,7 +6,7 @@ import { DrawLineService } from './draw-line.service';
 describe('Service: DrawLine', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DrawLineService]
+      providers: [DrawLineService],
     });
   });
 

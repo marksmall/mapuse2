@@ -1,18 +1,21 @@
 <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
   <ul class="nav" id="menu">
-    <li><a><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Stories</span></a></li>
-    <li><a><i class="fa fa-paperclip"></i> <span class="collapse in hidden-xs">Saved</span></a></li>
-    <li><a><i class="fa fa-refresh"></i> <span class="collapse in hidden-xs">Refresh</span></a></li>
     <li>
       <div class="row">
         <div class="col-xs-12">
           <div class="panel panel-info">
-            <div class="panel-heading clickable">
+            <div (click)="toggle($event)" class="panel-heading clickable">
               <h3 class="panel-title">Map Information</h3>
-              <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
             </div>
             <div class="panel-body">
-              Panel content <a href="http://www.jquery2dotnet.com/2013/11/image-preview-on-hover-bootstrap.html">Image Preview On Hover Bootstrap</a>
+              <dl class="dl-horizontal">
+                <dt>User Agent</dt>
+                <dd>An HTML user agent is any device that interprets HTML documents.</dd>
+                <dt>Client-side Scripting</dt>
+                <dd>Client-side scripting generally refers to the category of computer programs on the web that are executed client-side i.e. by the user's web browser.</dd>
+                <dt>Document Tree</dt>
+                <dd>The tree of elements encoded in the source document.</dd>
+              </dl>
             </div>
           </div>
         </div>
@@ -23,9 +26,24 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="panel panel-info">
-            <div class="panel-heading clickable">
+            <div (click)="toggle($event)" class="panel-heading clickable">
               <h3 class="panel-title">Overview Map</h3>
-              <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
+              <span class="pull-right"><i class="glyphicon glyphicon-minus"></i></span>
+            </div>
+            <div class="panel-body">
+              Panel content <a href="http://www.jquery2dotnet.com/2013/11/image-preview-on-hover-bootstrap.html">Image Preview On Hover Bootstrap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li *ngIf="collection === 'geology'">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-info">
+            <div (click)="toggle($event)" class="panel-heading clickable">
+              <h3 class="panel-title">Geology Overview Map</h3>
+              <span class="pull-right"><i class="glyphicon glyphicon-minus"></i></span>
             </div>
             <div class="panel-body">
               Panel content <a href="http://www.jquery2dotnet.com/2013/11/image-preview-on-hover-bootstrap.html">Image Preview On Hover Bootstrap</a>
@@ -35,20 +53,33 @@
       </div>
     </li>
     <li>
-      <a data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-      <ul class="nav nav-stacked collapse left-submenu" id="item1">
-        <li><a href="http://google.com">Google</a></li>
-        <li><a href="http://gmail.com">GMail</a></li>
-      </ul>
+       <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-info">
+            <div (click)="toggle($event)" class="panel-heading clickable">
+              <h3 class="panel-title">Annotations</h3>
+              <span class="pull-right"><i class="glyphicon glyphicon-minus"></i></span>
+            </div>
+            <div class="panel-body">
+              <app-draw-line></app-draw-line>
+              <app-polygon></app-polygon>
+              <label class="btn btn-default btn-sm active">
+                <input type="checkbox" checked>anno
+              </label>
+              <button class="btn btn-default btn-sm">anno1</button>
+              <button class="btn btn-default btn-sm">anno2</button>
+              <button class="btn btn-default btn-sm">anno1</button>
+              <button class="btn btn-default btn-sm">anno2</button>
+              <button class="btn btn-default btn-sm">anno1</button>
+              <button class="btn btn-default btn-sm">anno2</button>
+              <button class="btn btn-default btn-sm">anno1</button>
+              <button class="btn btn-default btn-sm">anno2</button>
+              <button class="btn btn-default btn-sm">anno1</button>
+              <button class="btn btn-default btn-sm">anno2</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </li>
-    <li>
-      <a data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-      <ul class="nav nav-stacked collapse" id="item2">
-        <li><a>View One</a></li>
-        <li><a>View Two</a></li>
-        <li><a>View Three</a></li>
-      </ul>
-    </li>
-    <li><a><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Link</span></a></li>
   </ul>
 </div>

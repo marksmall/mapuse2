@@ -8,7 +8,7 @@ import { MenuComponent } from './menu.component';
 @NgModule({
   imports: [
     CommonModule,
-    // AnnotationsModule,
+    AnnotationsModule,
   ],
   declarations: [MenuComponent],
   exports: [MenuComponent],
