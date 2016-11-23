@@ -1,5 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
 import * as proj4 from 'proj4';
 
 // import * as $ from 'jquery';
@@ -35,11 +38,10 @@ export class MapService implements OnInit {
 
   createMap(name: string, collectionId: string): OlMap {
     let config: MapConfig;
-    // FIXME: Hard-coded collection id, need to pass it in somehow.
     this.configService.getMapConfig(collectionId).subscribe(collection => {
       config = collection;
     });
-    console.log('CONFIG: ', config);
+    // console.log('CONFIG: ', config);
 
     let extent: Extent = [0, 0, 700000, 1300000];
     let projection = proj.get(config.crs.code);
@@ -78,6 +80,7 @@ export class MapService implements OnInit {
     this.maps.set(name, map);
 
     return map;
+    // return Observable.of(map);
   }
 
   setCenter(point: Coordinate, zoomLevel: number) {
