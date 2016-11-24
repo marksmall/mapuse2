@@ -1,1 +1,13 @@
 // You can add global styles to this file, and also import other style files
+
+// FIXME: Don't know why but putting this in the components scss file doesn't work,
+// however putting it here does. There are other map related scss that could go here
+// if we can't get it to work properly
+.ol-overviewmap {
+  position: inherit;
+  // width: 100%;
+
+  button {
+    display: none;
+  }
+}

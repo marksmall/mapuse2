@@ -1,0 +1,45 @@
+app-overview-map {
+  &.ol-overviewmap {
+    position: inherit;
+  }
+}
+
+.ol-overviewmap {
+  position: inherit;
+}
+
+.ol-control {
+  position: inherit;
+}
+
+.app-overview-map {
+  position: inherit;
+
+  &.ol-overviewmap {
+    position: inherit;
+  }
+}
+
+.ol-overviewmap-map {
+  position: inherit;
+}
+
+.ol-overviewmap {
+  &.ol-unselectable {
+    &.ol-control {
+      position: none;
+    }
+  }
+}
+
+.ol-custom-overviewmap {
+  position: inherit;
+}
+
+.app-overview-map:after {
+  position: inherit;
+}
+
+div.ol-overviewmap.ol-unselectable.ol-control {
+  position: inherit;
+}
