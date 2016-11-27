@@ -21,10 +21,12 @@
         "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/openlayers/css/ol.css",
+        "../node_modules/dragula/dist/dragula.css",
         "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/dragula/dist/dragula.js",
         "../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
       ],
       "environments": {
@@ -39,6 +41,7 @@
     "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
   ],
   "packages": [
+    "../node_modules/ng2-dragula"
   ],
   "e2e": {
     "protractor": {
