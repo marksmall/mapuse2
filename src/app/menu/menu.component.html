@@ -3,6 +3,20 @@
     <li>
       <div class="row">
         <div class="col-xs-12">
+          <div class="panel panel-info panel-os">
+            <div (click)="toggle($event)" class="panel-heading clickable">
+              <h3 class="panel-title">File Upload</h3>
+            </div>
+            <div class="panel-body">
+              <app-file-upload></app-file-upload>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="row">
+        <div class="col-xs-12">
           <div class="panel panel-info">
             <div (click)="toggle($event)" class="panel-heading clickable">
               <h3 class="panel-title">Map Information</h3>
