@@ -11,12 +11,14 @@ $icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 // however putting it here does. There are other map related scss that could go here
 // if we can't get it to work properly
 .ol-overviewmap {
-  position: inherit;
-  // width: 100%;
+  &.ol-control {
+    position: inherit;
+  }
 
-  // Hide the expand/collapse button.
-  button {
-    display: none;
+  &:not(.ol-collapsed) {
+    button {
+      display: none;
+    }
   }
 }
 
