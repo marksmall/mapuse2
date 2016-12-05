@@ -1,3 +1,5 @@
-$panel-info-heading-bg: rgba(0, 60, 136, .5);
+// NOTE: Variable overrides must come before bootstrap import.
+$panel-info-heading-bg: #f0ad4e;
 $panel-info-border: $panel-info-heading-bg;
 $panel-info-text: darken($panel-info-heading-bg, 50%);
+

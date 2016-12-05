@@ -1,5 +1,6 @@
 // You can add global styles to this file, and also import other style files
 @import './variables.scss';
+@import './themes.scss';
 
 // Bootstrap must come after the variables above so they are overridden.
 // NOTE: We need to import bootstrap here, not in angular-cli.json so we can
