@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeologyComponent implements OnInit {
 
+  active = '';
+
   constructor() { }
+
+  toggleMenu() {
+    this.active = this.active === 'active' ? '' : 'active';
+  }
 
   ngOnInit() {
   }

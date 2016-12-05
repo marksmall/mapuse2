@@ -1,0 +1,27 @@
+// collapsed sidebar styles
+.row-offcanvas {
+  position: relative;
+  -webkit-transition: .25s ease-out;
+  -moz-transition: .25s ease-out;
+  transition: .25s ease-out;
+}
+
+.row-offcanvas-left {
+  &.active {
+    left: 20%;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 5em;
+  left: 5em;
+  z-index: 100;
+}
+
+// always show hamburger
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+}
