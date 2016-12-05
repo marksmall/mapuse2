@@ -1,0 +1,12 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins/_panels.scss';
+
+.os-panel {
+  $theme: rgba(0, 60, 136, .5);
+  @include panel-variant($theme, darken($theme, 50%), $theme, $theme);
+}
+
+.geology-panel {
+  $theme: rgba(65, 108, 83, .5);
+  @include panel-variant($theme, darken($theme, 50%), $theme, $theme);
+}
+
