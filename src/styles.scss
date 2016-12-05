@@ -1,4 +1,11 @@
 // You can add global styles to this file, and also import other style files
+@import './variables.scss';
+
+// Bootstrap must come after the variables above so they are overridden.
+// NOTE: We need to import bootstrap here, not in angular-cli.json so we can
+//       override variables.
+$icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 // FIXME: Don't know why but putting this in the components scss file doesn't work,
 // however putting it here does. There are other map related scss that could go here
@@ -7,6 +14,7 @@
   position: inherit;
   // width: 100%;
 
+  // Hide the expand/collapse button.
   button {
     display: none;
   }
