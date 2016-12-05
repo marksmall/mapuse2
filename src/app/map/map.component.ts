@@ -7,8 +7,6 @@ import { MapService } from './map.service';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-// export class MapComponent implements OnInit {
-// export class MapComponent implements AfterContentInit {
 export class MapComponent implements AfterViewInit {
 
   @Input() mapname: string;
@@ -18,9 +16,7 @@ export class MapComponent implements AfterViewInit {
     console.log('Creating Map Component');
   }
 
-  // ngAfterContentInit() {
   ngAfterViewInit() {
-  // ngOnInit() {
     // Map needs to be created after the view has been initialized or the template
     // will not be properly defined i.e. map name will not have been set.
     this.mapService.createMap(this.mapname, this.collection);
