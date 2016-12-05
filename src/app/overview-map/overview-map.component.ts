@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ElementRef, Renderer } from '@angular/core';
 
 import { Map, layer, source, control } from 'openlayers';
 
@@ -14,7 +14,7 @@ export class OverviewMapComponent implements OnInit, AfterViewChecked {
   private map: Map;
   private overviewMapControl: control.OverviewMap;
 
-  constructor(private mapService: MapService, private el: ElementRef) { }
+  constructor(private mapService: MapService, private el: ElementRef, private renderer: Renderer) { }
 
   ngOnInit() {
     let overviewMap = this.el.nativeElement.querySelector('div');
@@ -48,8 +48,10 @@ export class OverviewMapComponent implements OnInit, AfterViewChecked {
       });
 
       if (!controlExists) {
-        console.log('Map is no longer null: ', this.map);
+        console.log('Overview Map control does not exist, therefore adding', this.map);
         this.map.addControl(this.overviewMapControl);
+        // Collapse panel after overview map added to map so it retrieves the map content.
+        this.renderer.setElementClass(this.el.nativeElement.parentNode, 'collapse', true);
       }
     }
   }
