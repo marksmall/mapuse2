@@ -4,7 +4,7 @@
 // Bootstrap must come after the variables above so they are overridden.
 // NOTE: We need to import bootstrap here, not in angular-cli.json so we can
 //       override variables.
-$icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 // FIXME: Don't know why but putting this in the components scss file doesn't work,
